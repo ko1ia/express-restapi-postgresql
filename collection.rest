@@ -22,7 +22,7 @@ Content-Type: application/json
 GET http://localhost:8080/api/user
 
 ###
-DELETE http://localhost:8080/api/user/8
+DELETE http://localhost:8080/api/user/3
 
 ###
 
@@ -36,7 +36,7 @@ Content-Type: application/json
 {
     "title": "title post",
     "content": "content post",
-    "user_id": 12
+    "user_id": 2
 }
 
 ###
