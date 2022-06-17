@@ -1,7 +1,8 @@
 create TABLE person(
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    surname VARCHAR(255)
+    name VARCHAR(255) NOT NULL UNIQUE,
+    surname VARCHAR(255) NOT NULL,
+    password VARCHAR(255)
 );
 
 

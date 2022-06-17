@@ -2,8 +2,9 @@ POST http://localhost:8080/api/user
 Content-Type: application/json
 
 {
-    "name": "testuser",
-    "surname": "testuser"
+    "name": "testuser2",
+    "surname": "testuser",
+    "password": "qwerty123"
 }
 
 ###
@@ -12,9 +13,10 @@ PUT http://localhost:8080/api/user
 Content-Type: application/json
 
 {
-    "id": 12,
+    "id": 2,
     "name": "testuser upd",
-    "surname": "testuser upd"
+    "surname": "testuser upd",
+    "password": "123"
 }
 
 ###
@@ -22,16 +24,19 @@ Content-Type: application/json
 GET http://localhost:8080/api/user
 
 ###
+
 DELETE http://localhost:8080/api/user/3
 
 ###
 
 GET http://localhost:8080/api/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3R1c2VyIiwic3VybmFtZSI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiIkMmIkMDQkQzRPTnA3bTljUXRXbnNYTGVXUkJGZWxzZkM3emt3a3VQOFVVd3pyY3ZOLzBKWkxwdTJUUlciLCJpYXQiOjE2NTU0MzAyMDV9.5hRPUdKU8f-aIuCn-mOD9YAebimCuC_gsjSISobm52c
 
 ###
 
 POST http://localhost:8080/api/post
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3R1c2VyIiwic3VybmFtZSI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiIkMmIkMDQkQzRPTnA3bTljUXRXbnNYTGVXUkJGZWxzZkM3emt3a3VQOFVVd3pyY3ZOLzBKWkxwdTJUUlciLCJpYXQiOjE2NTU0MzAyMDV9.5hRPUdKU8f-aIuCn-mOD9YAebimCuC_gsjSISobm52c
 
 {
     "title": "title post",
@@ -49,4 +54,14 @@ Content-Type: application/json
     "title": "title post",
     "content": "content post",
     "user_id": 12
+}
+
+###
+
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+    "name": "testuser",
+    "password": "qwerty123"
 }

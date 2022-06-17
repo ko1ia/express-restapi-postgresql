@@ -1,9 +1,11 @@
 const db = require('../db')
+const bcrypt = require('bcrypt')
 
 class UserController {
     async createUser(req, res) {
+        const passwordHash = await bcrypt.hash(req.body.password, 3)
         const {name, surname} = req.body
-        const newUser = await db.query(`INSERT INTO person (name, surname) values ($1, $2) RETURNING *`, [name, surname])
+        const newUser = await db.query(`INSERT INTO person (name, surname, password) values ($1, $2, $3) RETURNING *`, [name, surname, passwordHash])
         res.json(newUser.rows[0])
     }
 
@@ -19,8 +21,8 @@ class UserController {
     }
 
     async updateUser(req, res) {
-        const {id, name, surname} = req.body;
-        const user = await db.query('UPDATE person set name = $1, surname = $2 WHERE id = $3 RETURNING *', [name, surname, id])
+        const {id, name, surname, password} = req.body;
+        const user = await db.query('UPDATE person set name = $1, surname = $2, password = $3 WHERE id = $4 RETURNING *', [name, surname, password, id])
         res.json(user.rows[0])
     }
 
